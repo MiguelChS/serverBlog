@@ -1,6 +1,8 @@
 import { IPagePost, enumTypePost } from './service.page.interface';
+import {IPost, IPostAPI, PostAPI} from 'posts-escuelita';
 
 const mock: Array<IPagePost> = [];
+const postAPI = PostAPI();
 
 for (let i = 0; i < 23; i++) {
     mock.push({
@@ -17,5 +19,5 @@ for (let i = 0; i < 23; i++) {
 }
 
 export async function getListPost(category: string): Promise<Array<IPagePost> | null> {
-    return mock;
+    return postAPI.read();
 }
