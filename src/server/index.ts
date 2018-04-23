@@ -1,0 +1,24 @@
+import * as express from 'express';
+import * as bodyParser from 'body-parser';
+import { routers } from './router/index';
+import { join } from 'path';
+import { status404 } from './middleware/index';
+
+const app: express.Express = express();
+
+
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+app.use(bodyParser.text());
+//bundle
+app.use("/dist",express.static(join(__dirname, '..', '..', 'dist/client')));
+app.use("/",express.static(join(__dirname, '..', '..', 'public')));
+app.use("/bootstrap",express.static(join(__dirname, '..', '..', 'node_modules/bootstrap/dist')));
+app.use("/font-awesome",express.static(join(__dirname, '..', '..', 'node_modules/font-awesome')));
+
+
+app.use('/', routers())
+
+app.listen(5000, () => {
+    console.log("render en puerto 5000");
+})

@@ -1,0 +1,16 @@
+@import '~blg-listpost/dist/index.css';
+@import '~blg-post/dist/index.css';
+body {
+  background: #f4f4f4;
+  color: #444;
+  font-family: "Oswald", sans-serif;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+}
+
+.Home {
+  .contentHome {
+    margin-top: 50px
+  }
+}
