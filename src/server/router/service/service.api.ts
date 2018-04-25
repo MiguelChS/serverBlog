@@ -18,6 +18,6 @@ for (let i = 0; i < 23; i++) {
     })
 }
 
-export async function getListPost(category: string): Promise<Array<IPagePost> | null> {
-    return postAPI.read();
+export async function getListPost(category: string): Promise<Array<any> | null> {
+    return mock;
 }
