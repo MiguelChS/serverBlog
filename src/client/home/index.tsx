@@ -6,8 +6,8 @@ import { AboutMeComponent } from 'about-me-plugin';
 import { ListPost } from 'blg-listpost';
 import './home.scss';
 import { Route, Switch, match } from 'react-router-dom';
-import { Post } from 'blg-post';
 import { connect } from 'react-redux';
+import { PostPage } from '../post'
 
 const AboutMeProps = {
   content: 'TypeScript is a free and open-source programming language' +
@@ -16,7 +16,6 @@ const AboutMeProps = {
   img: 'http://www.sgmobmart.com/listings/upload/126/userprofile/PF12681275.jpg',
   textUppercase: 'TypescriptLang'
 };
-
 
 export const Home: React.SFC = (props) => {
   return (
@@ -30,7 +29,7 @@ export const Home: React.SFC = (props) => {
             <div className="col-sm-8">
               <Switch>
                 <Route exact path='/:category?' component={ListPost} />
-                <Route path='/post/:id' component={Post} />
+                <Route path='/post/:id' component={PostPage} />
               </Switch>
             </div>
             <div className="col-sm-4">

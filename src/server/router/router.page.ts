@@ -1,5 +1,4 @@
 import { Router, Request, Response } from 'express';
-import { getDataPost } from './service/service.page';
 import { join } from 'path';
 
 const path = join(__dirname, '../../../public/index.html');
