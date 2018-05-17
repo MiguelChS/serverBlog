@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { getListPost,getDataPost } from './service/service.api';
+import { getListPost, getDataPost, filterPostbyWords } from './service/service.api';
 
 export function routerApi(router: Router) {
 
@@ -18,6 +18,18 @@ export function routerApi(router: Router) {
     router.get("/api/post/:id", async (req: Request, res: Response) => {
         try {
             let data = await getDataPost(req.params.id)
+            res.status(200);
+            res.json(data);
+        }
+        catch (err) {
+            res.status(500);
+            res.json(err);
+        }
+    })
+
+    router.get("/api/filter/:text", async (req: Request, res: Response) => {
+        try {
+            let data = await filterPostbyWords(req.params.text)
             res.status(200);
             res.json(data);
         }

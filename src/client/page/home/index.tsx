@@ -3,11 +3,11 @@ import { Header } from 'blg-header';
 import { PhotoRedSocial } from 'blg-photo-redsocial';
 import FooterComponent from 'footer-widgets';
 import { AboutMeComponent } from 'about-me-plugin';
-import { ListPost } from 'blg-listpost';
 import './home.scss';
 import { Route, Switch, match } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PostPage } from '../post'
+import { ListPost } from '../listPost';
 
 const AboutMeProps = {
   content: 'TypeScript is a free and open-source programming language' +
@@ -22,6 +22,12 @@ export const Home: React.SFC = (props) => {
     <div className="Home">
       <header>
         <Header />
+        <div className="kotha-logo text-center">
+          <h1>
+            <a href="/" />
+            <img src="/images/logo.jpeg" style={{ width: "290px" }} />
+          </h1>
+        </div>
       </header>
       <div className="contentHome">
         <div className="container">

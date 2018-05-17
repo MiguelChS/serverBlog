@@ -1,12 +1,12 @@
 import { IPagePost, enumTypePost,dataResponse } from './service.page.interface';
-import {IPost, IPostAPI, PostAPI} from 'posts-escuelita';
+import {IPostAPI, PostAPI} from 'posts-escuelita';
 
 const mock: Array<IPagePost> = [];
 const postAPI = PostAPI();
 
 for (let i = 0; i < 23; i++) {
     mock.push({
-        urlImage: "http://demo.shapedtheme.com/kotha-pro-html/assets/images/post-thumb-1.jpg",
+        urlImage: "/images/perfil2.jpeg",
         dateString: "Octubre 13, 2017",
         detalle: {
             categoria: `${i}`,
@@ -25,7 +25,7 @@ export async function getListPost(category: string): Promise<Array<any> | null> 
 const mockbyID: dataResponse = {
     id: "TestHash001",
     data: {
-        urlImage: "http://demo.shapedtheme.com/kotha-pro-html/assets/images/post-thumb-1.jpg",
+        urlImage: "/images/post.jpeg",
         dateString: "Octubre 13, 2017",
         detalle: {
             categoria: "Travel",
@@ -43,4 +43,8 @@ export async function getDataPost(idPost: string): Promise<dataResponse | null> 
     } else {
         return null;
     }
+}
+
+export async function filterPostbyWords(text: string): Promise<Array<any>>{
+    return mock.slice(0,3);
 }

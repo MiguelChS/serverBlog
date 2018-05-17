@@ -19,10 +19,11 @@
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
     "path": "^0.12.7",
-    "posts-escuelita": "^1.0.4",
+    "posts-escuelita": "^1.0.6",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-router-redux": "^5.0.0-alpha.9"
+    "react-router-redux": "^5.0.0-alpha.9",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.8",
@@ -33,10 +34,10 @@
     "@types/react-router-dom": "^4.2.6",
     "@types/redux": "^3.6.0",
     "@types/redux-logger": "^3.0.6",
-    "about-me-plugin": "^1.1.1",
+    "about-me-plugin": "^1.1.2",
     "awesome-typescript-loader": "^5.0.0",
     "blg-header": "^1.1.0",
-    "blg-listpost": "^1.0.5",
+    "blg-listpost": "^1.0.8",
     "blg-photo-redsocial": "^1.0.6",
     "blg-post": "^1.0.2",
     "css-loader": "^0.28.11",
