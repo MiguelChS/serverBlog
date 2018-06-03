@@ -8,7 +8,10 @@
     "build:server": "rm -rf ./dist/server && tsc --p tsconfig.server.json",
     "build:client": "rm -rf ./dist/client && webpack --mode production",
     "build:client:dev": "rm -rf ./dist/client && webpack --mode development",
-    "start": "npm run build:server && npm run build:client && node ./dist/server/index.js"
+    "build": "npm run build:server && npm run build:client",
+    "build:start":
+      "npm run build:server && npm run build:client && node ./dist/server/index.js",
+    "start": "node ./dist/server/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,7 +23,7 @@
     "font-awesome": "^4.7.0",
     "mongoose": "^5.0.16",
     "path": "^0.12.7",
-    "posts-escuelita": "^1.0.8",
+    "posts-escuelita": "^1.1.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router-redux": "^5.0.0-alpha.9",

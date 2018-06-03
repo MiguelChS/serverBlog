@@ -16,8 +16,5 @@ export async function getDataPost(idPost: string): Promise<IPost | null> {
 }
 
 export async function filterPostbyWords(text: string): Promise<IPost[]>{	
-        return postAPI.read()
-        .then(posts => {
-            return [posts[Math.floor(Math.random() * 11)], posts[Math.floor(Math.random() * 11)]];
-        })
+        return postAPI.byWord(text);
  } 

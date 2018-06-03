@@ -26,6 +26,6 @@ app.use(
 
 app.use("/", routers());
 
-app.listen(5000, () => {
-  console.log("render en puerto 5000");
+app.listen(process.env.PORT || 8080, () => {
+  console.log("render en puerto ", process.env.PORT || 8080);
 });
