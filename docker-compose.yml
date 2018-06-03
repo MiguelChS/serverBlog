@@ -1,0 +1,21 @@
+version: '3'
+services:
+  blog:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+    - "5000:5000"
+    command: npm start
+    environment:
+      - DB=mongodb://mongo/posts-escuelita
+    links:
+    - mongo
+  mongo:
+    image: joaquinnicolas96/docker-mongodb
+    environment:
+      - AUTH=no
+    ports:
+    - "27017:27017"
+    volumes:
+      - ./data/db:/data/db
