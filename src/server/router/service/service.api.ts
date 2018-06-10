@@ -3,8 +3,21 @@ import { IPostAPI, PostAPI, IPost } from 'posts-escuelita';
 
 const postAPI = PostAPI();
 
-export async function getListPost(category: string): Promise<Array<any> | null> {
-    return postAPI.getByCategory(category);
+export async function getListPost(category: string): Promise<Array<IPagePost> | null> {
+    let listPost = await postAPI.getByCategory(category);
+    return listPost.map<IPagePost>(item => {
+        return {
+            dateString: item.dateString ? item.dateString : "",
+            detalle: {
+                categoria : item.detalle.categoria,
+                descripcion: !item.detalle.descripcion ? "" : item.detalle.descripcion.replace(/<[^>]*>/g,"").substr(0,350),
+                linkPost: "",
+                title: item.detalle.title,
+                typePost: enumTypePost.PREPOST
+            },
+            urlImage: item.urlImage ? item.urlImage : ""
+        }
+    })
 }
 
 export async function getDataPost(idPost: string): Promise<IPost | null> {
@@ -15,6 +28,6 @@ export async function getDataPost(idPost: string): Promise<IPost | null> {
     return postAPI.getById(idPost);
 }
 
-export async function filterPostbyWords(text: string): Promise<IPost[]>{	
-        return postAPI.byWord(text);
- } 
+export async function filterPostbyWords(text: string): Promise<IPost[]> {
+    return postAPI.byWord(text);
+} 
