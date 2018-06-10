@@ -2,10 +2,18 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import { routers } from "./router/index";
 import { join } from "path";
+import { connect } from 'mongoose';
+import { MongoError } from "mongodb";
 
 const app: express.Express = express();
-const db = process.env.DB || "mongodb://mongo/posts-escuelita";
-console.log("DATABASE URL: ", db);
+const db = process.env.MONGODB_URI || "mongodb://mongo/posts-escuelita";
+connect(db, (err: MongoError) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log('The MongoDB connection has been established successfully');
+});
 
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));

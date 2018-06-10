@@ -8,10 +8,11 @@ COPY webpack.config.js .
 COPY public ./public
 
 ENV DB=mongodb://app_user:stq84vc3osfsksmfb7ggd6d0mn@ds129651.mlab.com:29651/heroku_t88zg6lj
+ENV PORT=8080
 RUN npm install --silent
 RUN npm run build
 # Heroku no supports EXPOSE
-#EXPOSE 5000
+EXPOSE ${PORT}
 
 CMD [ "npm", "start" ]
 
