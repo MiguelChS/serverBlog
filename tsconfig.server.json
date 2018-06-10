@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6", 
-    "module": "commonjs",                        
-    "declaration": true,                   
+    "module": "commonjs",                                          
     "sourceMap": true,                                         
     "outDir": "dist/server",                       
     "strict": true,                            

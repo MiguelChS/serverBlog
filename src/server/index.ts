@@ -2,8 +2,6 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import { routers } from "./router/index";
 import { join } from "path";
-import { status404 } from "./middleware/index";
-import { connect } from "mongoose";
 
 const app: express.Express = express();
 const db = process.env.DB || "mongodb://mongo/posts-escuelita";

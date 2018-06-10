@@ -5,13 +5,13 @@ const postAPI = PostAPI();
 
 export async function getListPost(category: string): Promise<Array<IPagePost> | null> {
     let listPost = await postAPI.getByCategory(category);
-    return listPost.map<IPagePost>(item => {
+    return listPost.map<IPagePost>((item : any) => {
         return {
             dateString: item.dateString ? item.dateString : "",
             detalle: {
                 categoria : item.detalle.categoria,
                 descripcion: !item.detalle.descripcion ? "" : item.detalle.descripcion.replace(/<[^>]*>/g,"").substr(0,350),
-                linkPost: "",
+                linkPost: `/post/${item["_id"]}`,
                 title: item.detalle.title,
                 typePost: enumTypePost.PREPOST
             },
