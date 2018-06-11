@@ -1,9 +1,6 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const miniCSSExtractPluging = require('mini-css-extract-plugin');
+const optimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-const extractSass = new ExtractTextPlugin({
-    filename: "index.css",
-    disable: process.env.NODE_ENV === "development"
-});
 module.exports = {
     entry: "./src/client/index.tsx",
     output: {
@@ -27,26 +24,24 @@ module.exports = {
                     }
                 }]
             },
-            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             {
-                enforce: "pre",
-                test: /\.js$/,
-                loader: "source-map-loader"
-            },
-            //load scss
-            {
-                test: /\.(css|scss)$/,
-                use: extractSass.extract({
-                    use: [{
-                        loader: "css-loader"
-                    }, {
-                        loader: "sass-loader"
-                    }]
-                })
+                test: /\.scss$/,
+                use: [{
+                    loader: miniCSSExtractPluging.loader,
+                }, {
+                    loader: 'css-loader',
+                },
+                {
+                    loader: 'sass-loader',
+                }
+                ]
             }
         ]
     },
     plugins: [
-        extractSass
+        new optimizeCSSAssetsPlugin(),
+        new miniCSSExtractPluging({
+            filename: 'index.css',
+        }),
     ]
 };
