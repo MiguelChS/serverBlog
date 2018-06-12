@@ -6,7 +6,7 @@ import { connect } from 'mongoose';
 import { MongoError } from "mongodb";
 
 const app: express.Express = express();
-const db = process.env.MONGODB_URI || "mongodb://mongo/posts-escuelita";
+const db = process.env.MONGODB_URI || "mongodb://app_user:stq84vc3osfsksmfb7ggd6d0mn@ds129651.mlab.com:29651/heroku_t88zg6lj";
 connect(db, (err: MongoError) => {
   if (err) {
     console.error(err);

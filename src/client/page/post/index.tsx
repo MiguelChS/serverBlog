@@ -21,7 +21,7 @@ export class PostPage extends React.Component<IProps, { postData: PropertyPost |
     let response = await fetch(`/api/post/${idPost}`);
     if (response.ok && response.status == 200) {
       let data = await response.json();
-      this.setState({ postData: data.data })
+      this.setState({ postData: data })
     }
   }
 
