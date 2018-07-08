@@ -4,8 +4,7 @@ import { PhotoRedSocial } from "blg-photo-redsocial";
 import FooterComponent from "footer-widgets";
 import { AboutMeComponent } from "about-me-plugin";
 import "./home.scss";
-import { Route, Switch, match } from "react-router-dom";
-import { connect } from "react-redux";
+import { Route, Switch } from "react-router-dom";
 import { PostPage } from "../post";
 import { ListPost } from "../listPost";
 
